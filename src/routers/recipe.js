@@ -8,7 +8,7 @@ const Recipe = require("../models/recipe")
 // get /recipes?limit =#&skip=#
 // get /recipes?sortBy=createdAt_(asc/desc)
 
-router.get("/recipes", auth, async (req, res) => {
+router.get("/recipes", async (req, res) => {
     const match = {}
     const sort = {}
     if (req.query.sortBy) {
@@ -34,10 +34,10 @@ router.get("/recipes", auth, async (req, res) => {
 
 // get a single recipe
 
-router.get("/recipes/:id", auth, async (req, res) => {
+router.get("/recipes/:id", async (req, res) => {
     const_id = req.params.id
     try {
-        const recipe = await Recipe.findOne({ _id, owner: req.user._id})
+        const recipe = await Recipe.findOne({ _id})
         if (!recipe) {
             return res.status(404).send()
         }
