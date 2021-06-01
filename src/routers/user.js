@@ -1,6 +1,7 @@
 const express = require("express")
 const router = new express.Router()
 const User = require("../models/user")
+const auth = require("../middleware/auth.js")
 
 // new user route
 router.post("/users", async (req, res) => {
@@ -8,14 +9,15 @@ router.post("/users", async (req, res) => {
 
     try{
         await user.save();
-        res.status(201).send({user})
+        const token = await user.generateAuthToken();
+        res.status(201).send({user, token})
     } catch(error){
         res.status(400).send(error)
     }
 })
 
 // get user
-router.get("/users/me", async (req, res) => {
+router.get("/users/me", auth, async (req, res) => {
     console.log(req)
     res.send(req.user)
 })
