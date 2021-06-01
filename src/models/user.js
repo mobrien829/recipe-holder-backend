@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const validator = require("validator")
 const bcrypt = require("bcryptjs")
 
+// todos: add profile pic (stretch)
+
 const userSchema = new mongoose.Schema(
     {
         name: {
