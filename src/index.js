@@ -9,7 +9,7 @@ require("./db/mongoose")
 
 // connect the app to everything else
 const app = express();
-const port = process.env.port
+const port = process.env.PORT
 
 // assign express functions to app
 
