@@ -25,3 +25,4 @@ const recipeSchema = new mongoose.Schema(
 )
 
 const Recipe = mongoose.model("Task", taskSchema)
+module.exports = Recipe
