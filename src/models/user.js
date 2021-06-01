@@ -107,6 +107,14 @@ userSchema.pre("remove", async function(next) {
     await Task.deleteMany({ owner: user._id })
     next()
 })
+// password changes
+userSchema.pre("save", async function(next) {
+    const user = this
+
+    if (user.isModified("password")) {
+        user.password = await bcrypt.hash(user.password, 8)
+    }
+})
 
 
 
