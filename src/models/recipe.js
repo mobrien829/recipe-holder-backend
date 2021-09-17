@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-// todos: add videos/gifs/images
+// todos: add videos/gifs/images, formatting for steps
 
 const recipeSchema = new mongoose.Schema(
     {
