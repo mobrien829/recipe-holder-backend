@@ -5,7 +5,7 @@ require("./db/mongoose")
 // routers
 
 const userRouter = require("./routers/user")
-// const recipeRouter = require("./routers/recipes")
+const recipeRouter = require("./routers/recipe")
 
 // connect the app to everything else
 const app = express();
@@ -15,7 +15,7 @@ const port = process.env.PORT
 
 app.use(express.json());
 app.use(userRouter);
-// app.use(recipeRouter);
+app.use(recipeRouter);
 
 app.listen(port, () => {
     console.log(`server on ${port}`)
