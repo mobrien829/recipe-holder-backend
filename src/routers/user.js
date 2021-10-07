@@ -7,11 +7,11 @@ const auth = require("../middleware/auth.js")
 router.post("/users", async (req, res) => {
     const user = new User(req.body)
 
-    try{
+    try {
         await user.save();
         const token = await user.generateAuthToken();
-        res.status(201).send({user, token})
-    } catch(error){
+        res.status(201).send({ user, token })
+    } catch (error) {
         res.status(400).send(error)
     }
 })
