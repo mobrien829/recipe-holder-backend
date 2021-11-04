@@ -76,6 +76,8 @@ userSchema.statics.findByCredentials = async (email, password) => {
     if (!isMatch) {
         throw new Error("Unable to login with provided credentials")
     }
+
+    return user
 }
 // create the recipes field for relational database
 userSchema.virtual("recipes", {
